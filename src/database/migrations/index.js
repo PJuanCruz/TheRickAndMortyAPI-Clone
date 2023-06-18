@@ -1,4 +1,7 @@
+import * as dotenv from 'dotenv';
 import Database from './../index.js';
+
+dotenv.config();
 
 class Migration {
   constructor() {
