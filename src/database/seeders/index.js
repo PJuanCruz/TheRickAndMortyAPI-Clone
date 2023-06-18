@@ -1,18 +1,17 @@
 import * as dotenv from 'dotenv';
+import Database from './../index.js';
+import RickAndMortyAPI from './../../services/rickandmortyapi.js';
+import StatusService from './../../services/status.js';
+import GendersService from './../../services/genders.js';
+import LocationsService from './../../services/locations.js';
+import EpisodesService from './../../services/episodes.js';
+import CharactersService from './../../services/characters.js';
+import CharactersEpisodesService from './../../services/charactersEpisodes.js';
 
 dotenv.config();
 
 class Seeder {
-  constructor(
-    Database,
-    RickAndMortyAPI,
-    StatusService,
-    GendersService,
-    LocationsService,
-    EpisodesService,
-    CharactersService,
-    CharactersEpisodesService
-  ) {
+  constructor() {
     this.rickandmortyAPI = new RickAndMortyAPI();
     this.statusService = new StatusService(Database);
     this.gendersService = new GendersService(Database);
