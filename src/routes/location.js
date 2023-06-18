@@ -9,7 +9,7 @@ class LocationRouter extends Router {
   }
 
   configureRoutes() {
-    this.router.get('/:id', this.controller.getLocationById);
+    this.router.get('/:id',this._validateId, this.controller.getLocationById);
     this.router.get('/', this.controller.getAllLocations);
   }
 }

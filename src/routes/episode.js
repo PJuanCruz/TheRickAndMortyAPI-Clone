@@ -9,7 +9,7 @@ class EpisodeRouter extends Router {
   }
 
   configureRoutes() {
-    this.router.get('/:id', this.controller.getEpisodeById);
+    this.router.get('/:id', this._validateId, this.controller.getEpisodeById);
     this.router.get('/', this.controller.getAllEpisodes);
   }
 }

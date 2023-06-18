@@ -9,7 +9,7 @@ class CharacterRouter extends Router {
   }
 
   configureRoutes() {
-    this.router.get('/:id', this.controller.getCharacterById);
+    this.router.get('/:id', this._validateId, this.controller.getCharacterById);
     this.router.get('/', this.controller.getAllCharacters);
   }
 }
