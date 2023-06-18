@@ -40,6 +40,14 @@ class Service {
 
     return { count, pages, next, prev };
   }
+
+  _throwError({ status, message }) {
+    const error = new Error();
+    error.status = status;
+    error.message = message;
+
+    throw error;
+  }
 }
 
 export default Service;
