@@ -31,10 +31,6 @@ class LocationsService extends Service {
   }
 
   async selectLocationById({ id }) {
-    if (parseInt(id, 10).toString() !== id) {
-      return this._throwError({ status: 500, message: 'Hey! you must provide an id' });
-    }
-
     const results = await this.database.query(
       `
         SELECT
