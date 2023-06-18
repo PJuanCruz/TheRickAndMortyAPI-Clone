@@ -48,6 +48,10 @@ class EpisodesService extends Service {
       [id]
     );
 
+    if (!results.rows[0]) {
+      return this._throwError({ status: 404, message: 'Episode not found' });
+    }
+
     const response = { results: results.rows[0] };
 
     return response;
