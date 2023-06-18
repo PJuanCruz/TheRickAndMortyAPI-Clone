@@ -16,7 +16,7 @@ class LocationsService extends Service {
     );
   }
 
-  async selectLocationIdByName({name}) {
+  async selectLocationIdByName(name) {
     const results = await this.database.query(
       `
         SELECT id FROM locations
@@ -31,6 +31,13 @@ class LocationsService extends Service {
   }
 
   async selectLocationById({ id }) {
+    if (parseInt(id, 10).toString() !== id) {
+      return this._throwError({
+        status: 500,
+        message: 'Hey! you must provide an id',
+      });
+    }
+
     const results = await this.database.query(
       `
         SELECT
@@ -59,6 +66,10 @@ class LocationsService extends Service {
       `,
       [id]
     );
+
+    if (!results.rows[0]) {
+      return this._throwError({ status: 404, message: 'Location not found' });
+    }
 
     const response = { results: results.rows[0] };
 
