@@ -18,7 +18,7 @@ class AppRouter extends Router {
     this.router.use('/character', this.characterRouter.getRouter());
     this.router.use('/episode', this.episodeRouter.getRouter());
     this.router.use('/location', this.locationRouter.getRouter());
-    this.router.use('/docs', this.docsRouter.getRouter());
+    this.router.use('/', this.docsRouter.getRouter());
   }
 }
 
