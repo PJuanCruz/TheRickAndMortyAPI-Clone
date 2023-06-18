@@ -80,6 +80,10 @@ class EpisodesService extends Service {
       [name, episode, page]
     );
 
+    if (!results.rows[0]) {
+      return this._throwError({ status: 404, message: 'There is nothing here' });
+    }
+
     const response = {
       info: this._getInfo(page, results.rows[0].count, {
         name,
